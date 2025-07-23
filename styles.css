@@ -142,6 +142,56 @@ body {
     border-top: 3px solid var(--primary-color);
 }
 
+.nav-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--space-md) 0;
+}
+
+.nav-brand {
+    font-size: var(--font-lg);
+    font-weight: 600;
+    color: var(--primary-color);
+    display: none; /* デスクトップでは非表示 */
+}
+
+.nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: var(--space-sm);
+    border-radius: var(--radius-md);
+    transition: var(--transition-fast);
+}
+
+.nav-toggle:hover {
+    background-color: rgba(41, 128, 185, 0.1);
+}
+
+.hamburger-line {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: var(--dark-gray);
+    margin: 4px 0;
+    transition: var(--transition-fast);
+    border-radius: var(--radius-sm);
+}
+
+.nav-toggle.active .hamburger-line:nth-child(1) {
+    transform: rotate(45deg) translate(6px, 6px);
+}
+
+.nav-toggle.active .hamburger-line:nth-child(2) {
+    opacity: 0;
+}
+
+.nav-toggle.active .hamburger-line:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
+}
+
 .nav-menu {
     display: flex;
     justify-content: center;
@@ -939,14 +989,60 @@ body {
         align-items: center;
     }
     
+    /* モバイルナビゲーション */
+    .nav-brand {
+        display: block;
+    }
+    
+    .nav-toggle {
+        display: block;
+    }
+    
     .nav-menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--white);
+        box-shadow: var(--shadow-lg);
         flex-direction: column;
-        gap: var(--space-sm);
-        padding: var(--space-lg) 0;
+        padding: 0;
+        margin: 0;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease, opacity 0.3s ease;
+        opacity: 0;
+        border-top: 1px solid var(--light-gray);
+    }
+    
+    .nav-menu.active {
+        max-height: 400px;
+        opacity: 1;
     }
     
     .nav-menu li {
         margin: 0;
+        border-bottom: 1px solid var(--light-gray);
+    }
+    
+    .nav-menu li:last-child {
+        border-bottom: none;
+    }
+    
+    .nav-menu a {
+        display: block;
+        padding: var(--space-lg);
+        text-align: center;
+        font-size: var(--font-base);
+        border-radius: 0;
+    }
+    
+    .nav-menu a::after {
+        display: none;
+    }
+    
+    .nav-menu a:hover {
+        background-color: rgba(41, 128, 185, 0.1);
     }
     
     .phases-grid {
