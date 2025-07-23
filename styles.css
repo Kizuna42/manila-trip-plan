@@ -1181,58 +1181,280 @@ body {
 
 @media (max-width: 480px) {
     :root {
-        --font-base: 1.125rem;     /* より大きく（18px） */
-        --font-sm: 1rem;           /* より大きく（16px） */
-        --font-xs: 0.875rem;       /* より大きく（14px） */
+        --font-base: 1rem;         /* 16px：読みやすさと収納のバランス */
+        --font-sm: 0.9rem;         /* 14.4px：時間表示用 */
+        --font-xs: 0.8rem;         /* 12.8px：小さな補助テキスト */
+        --font-lg: 1.1rem;         /* 17.6px：タイトル用 */
+        --font-xl: 1.1rem;         /* 17.6px：大きなタイトル用 */
+        
+        /* モバイル用コンパクトスペーシング */
+        --space-xs: 0.2rem;        /* より密に */
+        --space-sm: 0.4rem;        /* より密に */
+        --space-md: 0.75rem;       /* より密に */
+        --space-lg: 1rem;          /* より密に */
+        --space-xl: 1.25rem;       /* より密に */
+        --space-2xl: 1.5rem;       /* より密に */
     }
     
     .container {
-        padding: 0 var(--space-md); /* より広く */
+        padding: 0 var(--space-md); /* 少し余裕を持たせる */
     }
     
     .section {
-        padding: var(--space-3xl) 0; /* より広く */
+        padding: var(--space-xl) 0; /* よりコンパクトに */
+    }
+    
+    .section-title {
+        font-size: var(--font-xl);
+        margin-bottom: var(--space-lg); /* よりコンパクトに */
     }
     
     .phase-card,
     .prep-card,
-    .day-card,
     .ref-card {
-        padding: var(--space-xl); /* より広く */
+        padding: var(--space-md); /* さらにコンパクトに */
+        margin-bottom: var(--space-md); /* よりコンパクトに */
+    }
+    
+    .day-card {
+        padding: 0; /* カード内のpadding調整 */
+        margin-bottom: var(--space-lg); /* 適度な間隔 */
+    }
+    
+    .day-header {
+        padding: var(--space-lg); /* ヘッダーは適度な余白 */
+        gap: var(--space-sm); /* より密に */
+    }
+    
+    .day-content {
+        padding: var(--space-md); /* よりコンパクトに */
     }
     
     .timeline {
-        padding-left: var(--space-xl);
+        padding-left: var(--space-md); /* よりコンパクトに */
     }
     
     .timeline-item {
-        padding-left: var(--space-lg);
-        margin-bottom: var(--space-xl); /* より広く */
+        padding-left: var(--space-md); /* よりコンパクトに */
+        margin-bottom: var(--space-md); /* よりコンパクトに */
     }
     
     .timeline-content h4 {
-        font-size: var(--font-xl); /* より大きく */
-        margin-bottom: var(--space-md);
-        line-height: 1.4;
+        font-size: var(--font-lg); /* 調整：大きすぎず小さすぎず */
+        margin-bottom: var(--space-xs); /* より密に */
+        line-height: 1.3; /* より密に */
+        word-break: keep-all; /* 適切な改行制御 */
+        overflow-wrap: break-word; /* 長い単語の場合のみ改行 */
     }
     
     .timeline-content p {
-        font-size: var(--font-base); /* より大きく */
-        line-height: 1.6;
-        margin-bottom: var(--space-lg);
+        font-size: var(--font-base); /* 16px：ちょうど良いサイズ */
+        line-height: 1.4; /* より密に */
+        margin-bottom: var(--space-sm); /* より密に */
+        word-break: keep-all; /* 適切な改行制御 */
+        overflow-wrap: break-word; /* 長い単語の場合のみ改行 */
     }
     
     .timeline-time {
-        font-size: var(--font-sm); /* より大きく */
-        margin-bottom: var(--space-md);
+        font-size: var(--font-sm); /* 14.4px：小さくして改行回避 */
+        margin-bottom: var(--space-xs); /* より密に */
+        white-space: nowrap; /* 時間表示の改行防止 */
+        word-break: keep-all; /* 適切な改行制御 */
     }
     
     .hero-details {
         font-size: var(--font-lg); /* より大きく */
+        gap: var(--space-sm); /* より密に */
     }
     
     .detail-item i {
         font-size: var(--font-xl); /* より大きく */
+    }
+    
+    /* 日付表示の改行制御 */
+    .day-date {
+        word-break: keep-all;
+        overflow-wrap: break-word;
+        line-height: 1.3;
+        margin-top: var(--space-xs); /* より密に */
+    }
+    
+    .hero-details .detail-item span {
+        white-space: nowrap; /* ヒーロー部分の日付改行防止 */
+    }
+    
+    /* モバイルカードのスペーシング調整 */
+    .mobile-card {
+        padding: var(--space-md); /* よりコンパクトに */
+        margin-bottom: var(--space-md); /* よりコンパクトに */
+    }
+    
+    .mobile-card-header {
+        margin-bottom: var(--space-sm); /* より密に */
+    }
+    
+    .mobile-card-content {
+        gap: var(--space-xs); /* より密に */
+    }
+    
+    /* 準備カードグリッドの間隔調整 */
+    .preparation-grid {
+        gap: var(--space-md); /* よりコンパクトに */
+    }
+    
+    /* 選択カードの間隔調整 */
+    .choice-grid {
+        gap: var(--space-md); /* よりコンパクトに */
+    }
+    
+    /* ハイライトセクションの調整 */
+    .highlight-section {
+        padding: var(--space-md); /* よりコンパクトに */
+        margin-top: var(--space-sm); /* より密に */
+    }
+    
+    .highlight-badge {
+        margin-top: var(--space-xs); /* より密に */
+        padding: var(--space-xs) var(--space-sm); /* よりコンパクトに */
+    }
+}
+
+/* 極小画面 (360px以下) 対応 */
+@media (max-width: 360px) {
+    :root {
+        /* さらにコンパクトなスペーシング */
+        --space-xs: 0.1rem;        /* 極小 */
+        --space-sm: 0.3rem;        /* 極小 */
+        --space-md: 0.5rem;        /* 極小 */
+        --space-lg: 0.75rem;       /* 極小 */
+        --space-xl: 1rem;          /* 極小 */
+        --space-2xl: 1.25rem;      /* 極小 */
+        
+        /* フォントサイズもさらに調整 */
+        --font-base: 0.95rem;      /* 15.2px：極小画面用 */
+        --font-sm: 0.85rem;        /* 13.6px：時間表示用 */
+        --font-xs: 0.75rem;        /* 12px：小さな補助テキスト */
+        --font-lg: 1.05rem;        /* 16.8px：タイトル用 */
+        --font-xl: 1.05rem;        /* 16.8px：大きなタイトル用 */
+    }
+    
+    .container {
+        padding: 0 var(--space-sm); /* 極小画面用 */
+    }
+    
+    .hero-title {
+        font-size: var(--font-3xl); /* よりコンパクトに */
+    }
+    
+    .hero-subtitle {
+        font-size: var(--font-xl); /* よりコンパクトに */
+    }
+    
+    .section-title {
+        font-size: var(--font-lg); /* よりコンパクトに */
+        margin-bottom: var(--space-md);
+    }
+    
+    .day-header {
+        padding: var(--space-md); /* よりコンパクトに */
+        gap: var(--space-xs);
+    }
+    
+    .day-number {
+        width: 40px; /* より小さく */
+        height: 40px; /* より小さく */
+        font-size: var(--font-lg);
+    }
+    
+    .day-content {
+        padding: var(--space-sm); /* よりコンパクトに */
+    }
+    
+    .timeline {
+        padding-left: var(--space-sm); /* よりコンパクトに */
+    }
+    
+    .timeline-item {
+        padding-left: var(--space-sm); /* よりコンパクトに */
+        margin-bottom: var(--space-sm); /* よりコンパクトに */
+    }
+    
+    .timeline-content h4 {
+        font-size: var(--font-base); /* よりコンパクトに */
+        margin-bottom: 0; /* より密に */
+    }
+    
+    .timeline-content p {
+        font-size: var(--font-sm); /* よりコンパクトに */
+        margin-bottom: var(--space-xs); /* より密に */
+        line-height: 1.3; /* より密に */
+    }
+    
+    .timeline-time {
+        font-size: var(--font-xs); /* よりコンパクトに */
+        margin-bottom: 0; /* より密に */
+    }
+    
+    .prep-card,
+    .ref-card {
+        padding: var(--space-sm); /* よりコンパクトに */
+        margin-bottom: var(--space-sm); /* よりコンパクトに */
+    }
+    
+    .mobile-card {
+        padding: var(--space-sm); /* よりコンパクトに */
+        margin-bottom: var(--space-sm); /* よりコンパクトに */
+    }
+    
+    .mobile-card-header {
+        font-size: var(--font-base); /* よりコンパクトに */
+        margin-bottom: var(--space-xs); /* より密に */
+    }
+    
+    .mobile-card-price {
+        font-size: var(--font-lg); /* よりコンパクトに */
+    }
+    
+    .mobile-card-label {
+        font-size: var(--font-xs); /* よりコンパクトに */
+    }
+    
+    .mobile-card-value {
+        font-size: var(--font-sm); /* よりコンパクトに */
+    }
+    
+    .highlight-section {
+        padding: var(--space-sm); /* よりコンパクトに */
+        margin-top: var(--space-xs); /* より密に */
+    }
+    
+    .highlight-badge {
+        font-size: var(--font-xs); /* よりコンパクトに */
+        margin-top: 0; /* より密に */
+        padding: var(--space-xs) var(--space-xs); /* よりコンパクトに */
+    }
+    
+    /* ナビゲーションメニューの調整 */
+    .nav-menu a {
+        padding: var(--space-md); /* よりコンパクトに */
+        font-size: var(--font-sm); /* よりコンパクトに */
+    }
+    
+    /* 予算サマリーカードの調整 */
+    .budget-overview {
+        margin-bottom: var(--space-md); /* よりコンパクトに */
+    }
+    
+    .budget-card {
+        padding: var(--space-md); /* よりコンパクトに */
+    }
+    
+    .budget-amount {
+        font-size: var(--font-2xl); /* よりコンパクトに */
+    }
+    
+    .budget-jpy {
+        font-size: var(--font-base); /* よりコンパクトに */
     }
 }
 
