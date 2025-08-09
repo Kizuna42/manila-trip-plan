@@ -55,9 +55,11 @@ document.addEventListener('DOMContentLoaded', function () {
       if (isActive) {
         content.classList.remove('active');
         toggleBtn.classList.remove('active');
+        toggleBtn.setAttribute('aria-expanded', 'false');
       } else {
         content.classList.add('active');
         toggleBtn.classList.add('active');
+        toggleBtn.setAttribute('aria-expanded', 'true');
 
         // コンテンツが表示されたら、そこまでスクロール
         setTimeout(() => {
@@ -104,11 +106,9 @@ document.addEventListener('DOMContentLoaded', function () {
     // ナビリンクのアクティブ状態更新
     navLinks.forEach(link => {
       const href = link.getAttribute('href').substring(1);
-      if (href === currentSection) {
-        link.classList.add('active');
-      } else {
-        link.classList.remove('active');
-      }
+      const isActive = href === currentSection;
+      link.classList.toggle('active', isActive);
+      link.setAttribute('aria-current', isActive ? 'page' : 'false');
     });
   });
 
@@ -332,6 +332,7 @@ function initializeMobileMenu() {
         navMenu.classList.add('active');
         navToggle.classList.add('active');
         navToggle.setAttribute('aria-label', 'メニューを閉じる');
+        navToggle.setAttribute('aria-expanded', 'true');
         body.style.overflow = 'hidden'; // スクロールを無効化
       } else {
         closeMenu();
@@ -397,6 +398,7 @@ function initializeMobileMenu() {
     navMenu.classList.remove('active');
     navToggle.classList.remove('active');
     navToggle.setAttribute('aria-label', 'メニューを開く');
+    navToggle.setAttribute('aria-expanded', 'false');
     body.style.overflow = ''; // スクロールを有効化
   }
 }

@@ -17,6 +17,7 @@
     />
   </head>
   <body>
+    <a href="#main" class="skip-link">メイン内容へスキップ</a>
     <!-- ヘッダー -->
     <header class="hero">
       <div class="hero-overlay">
@@ -37,6 +38,14 @@
               <span>フィリピン・マニラ</span>
             </div>
           </div>
+          <div class="cta-buttons">
+            <a class="btn btn-primary" href="#preparation">
+              計画を見る
+            </a>
+            <a class="btn btn-secondary" href="#itinerary">
+              日程へ移動
+            </a>
+          </div>
         </div>
       </div>
     </header>
@@ -46,15 +55,20 @@
       <div class="container">
         <div class="nav-header">
           <div class="nav-brand">マニラ旅行プラン</div>
-          <button type="button" class="nav-toggle" aria-label="メニューを開く">
+          <button
+            type="button"
+            class="nav-toggle"
+            aria-label="メニューを開く"
+            aria-controls="primary-navigation"
+            aria-expanded="false"
+          >
             <span class="hamburger-line"></span>
             <span class="hamburger-line"></span>
             <span class="hamburger-line"></span>
           </button>
         </div>
-        <ul class="nav-menu">
-          <li><a href="#overview">概要</a></li>
-          <li><a href="#preparation">準備</a></li>
+        <ul class="nav-menu" id="primary-navigation">
+          <li><a href="#preparation">計画</a></li>
           <li><a href="#itinerary">日程</a></li>
           <li><a href="#budget">予算</a></li>
           <li><a href="#references">参考資料</a></li>
@@ -63,7 +77,7 @@
     </nav>
 
     <!-- メインコンテンツ -->
-    <main class="main-content">
+    <main id="main" class="main-content">
       <!-- 準備セクション -->
       <section id="preparation" class="section section-alt">
         <div class="container">
@@ -287,11 +301,13 @@
                   type="button"
                   class="toggle-btn"
                   aria-label="詳細を表示"
+                  aria-expanded="false"
+                  aria-controls="day-1"
                 >
                   <i class="fas fa-chevron-down"></i>
                 </button>
               </div>
-              <div class="day-content">
+              <div class="day-content" id="day-1">
                 <div class="timeline">
                   <div class="timeline-item">
                     <div class="timeline-time">14:10 - 16:30</div>
@@ -337,11 +353,13 @@
                   type="button"
                   class="toggle-btn"
                   aria-label="詳細を表示"
+                  aria-expanded="false"
+                  aria-controls="day-2"
                 >
                   <i class="fas fa-chevron-down"></i>
                 </button>
               </div>
-              <div class="day-content">
+              <div class="day-content" id="day-2">
                 <div class="timeline">
                   <div class="timeline-item">
                     <div class="timeline-time">09:00 - 12:30</div>
@@ -388,11 +406,13 @@
                   type="button"
                   class="toggle-btn"
                   aria-label="詳細を表示"
+                  aria-expanded="false"
+                  aria-controls="day-3"
                 >
                   <i class="fas fa-chevron-down"></i>
                 </button>
               </div>
-              <div class="day-content">
+              <div class="day-content" id="day-3">
                 <div class="timeline">
                   <div class="timeline-item">
                     <div class="timeline-time">10:00 - 14:00</div>
@@ -439,11 +459,13 @@
                   type="button"
                   class="toggle-btn"
                   aria-label="詳細を表示"
+                  aria-expanded="false"
+                  aria-controls="day-4"
                 >
                   <i class="fas fa-chevron-down"></i>
                 </button>
               </div>
-              <div class="day-content">
+              <div class="day-content" id="day-4">
                 <div class="choice-section">
                   <h4>究極の選択：あなたはどちらを選ぶ？</h4>
                   <div class="choice-grid">
@@ -488,11 +510,13 @@
                   type="button"
                   class="toggle-btn"
                   aria-label="詳細を表示"
+                  aria-expanded="false"
+                  aria-controls="day-5"
                 >
                   <i class="fas fa-chevron-down"></i>
                 </button>
               </div>
-              <div class="day-content">
+              <div class="day-content" id="day-5">
                 <div class="timeline">
                   <div class="timeline-item">
                     <div class="timeline-time">午前</div>
@@ -530,11 +554,13 @@
                   type="button"
                   class="toggle-btn"
                   aria-label="詳細を表示"
+                  aria-expanded="false"
+                  aria-controls="day-6"
                 >
                   <i class="fas fa-chevron-down"></i>
                 </button>
               </div>
-              <div class="day-content">
+              <div class="day-content" id="day-6">
                 <div class="timeline">
                   <div class="timeline-item">
                     <div class="timeline-time">11:00 - 17:00</div>
@@ -578,11 +604,13 @@
                   type="button"
                   class="toggle-btn"
                   aria-label="詳細を表示"
+                  aria-expanded="false"
+                  aria-controls="day-7"
                 >
                   <i class="fas fa-chevron-down"></i>
                 </button>
               </div>
-              <div class="day-content">
+              <div class="day-content" id="day-7">
                 <div class="timeline">
                   <div class="timeline-item">
                     <div class="timeline-time">01:30 - 02:00</div>
